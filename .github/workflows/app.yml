@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Where
+        run: curl https://ipinfo.io/json
 
       - name: Set up Docker Compose
         run: docker compose up -d
