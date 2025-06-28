@@ -1,0 +1,36 @@
+name: Run N8N in Docker Compose
+
+on:
+  push:
+    branches: [main]
+    
+  workflow_dispatch:
+
+jobs:
+  test-n8n:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Compose
+        run: docker-compose up -d
+
+      - name: Wait for N8N to start
+        run: |
+          for i in {1..10}; do
+            if curl -s http://localhost:5678 | grep -q "n8n"; then
+              echo "N8N is up"
+              exit 0
+            fi
+            echo "Waiting for N8N..."
+            sleep 5
+          done
+          echo "N8N failed to start"
+          docker-compose logs
+          exit 1
+
+      - name: Run curl to test N8N
+        run: curl http://localhost:5678
+
