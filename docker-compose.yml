@@ -25,7 +25,7 @@ services:
       - N8N_PORT=5678
       - N8N_PROTOCOL=http
 
-      - WEBHOOK_URL=https://n8.9scloud.xyz
+      - WEBHOOK_URL=https://n.g86.xyz
     volumes:
       - n_data:/home/node/.n8n
 
