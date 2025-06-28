@@ -13,5 +13,10 @@ services:
     volumes:
       - n8n_data:/home/node/.n8n
 
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    depends_on:
+      - n8n
+    command: tunnel run --token ${CLOUDFLARE_TUNNEL_TOKEN}
 volumes:
   n8n_data:
