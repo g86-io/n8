@@ -20,7 +20,7 @@ services:
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
       - N8N_RUNNERS_ENABLED=true
 
-      - WEBHOOK_URL=https://q1.laobo.xyz
+      - WEBHOOK_URL=http://q1.laobo.xyz
     volumes:
       - n8n_data:/home/node/.n8n
 
