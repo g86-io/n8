@@ -11,6 +11,9 @@ services:
       - DB_POSTGRESDB_PASSWORD=${DB_POSTGRESDB_PASSWORD}
       - DB_POSTGRESDB_HOST=aws-0-us-east-1.pooler.supabase.com
       - DB_POSTGRESDB_PORT=5432
+      - N8N_HOST=0.0.0.0
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
 
       - EXECUTIONS_DATA_PRUNE=true
       - EXECUTIONS_DATA_MAX_AGE=168
