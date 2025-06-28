@@ -1,6 +1,12 @@
+## STOP
+
+```shell
+gh run list --workflow=app.yml --status=in_progress --limit=100 --json databaseId | jq -r '.[].databaseId' | xargs -n1 
+```
+
+## START
+
+```shell
 gh workflow run app.yml
+```
 
-
-brew install cloudflared && 
-
-sudo cloudflared service install eyJhIjoiYjBhMzIwYjE4MDJhYTM5NDM2MzFkZDMxNGU1NzI4MjUiLCJ0IjoiOGQxZGY5Y2MtNzEyNC00NzAyLTg3ZDktYmEzNDRlM2RkNDRlIiwicyI6Ik9XUTNPRGt5WldZdE1tVm1PUzAwTlRreUxXRTVNekV0TURFd1pEVmpNakJqTXpoaiJ9
