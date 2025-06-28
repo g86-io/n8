@@ -1,9 +1,6 @@
 name: Run N8N in Docker Compose
 
 on:
-  push:
-    branches: [main]
-
   workflow_dispatch:
 
 jobs:
