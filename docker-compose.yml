@@ -1,7 +1,8 @@
 
 services:
-  n8n:
+  n8:
     image: n8nio/n8n
+    container_name: n8
     ports:
       - "5678:5678"
     environment:
@@ -23,14 +24,14 @@ services:
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
       - N8N_RUNNERS_ENABLED=true
 
-      - WEBHOOK_URL=http://q1.laobo.xyz
+      # - WEBHOOK_URL=http://n8-local.laobo.xyz
     volumes:
-      - n8n_data:/home/node/.n8n
+      - n_data:/home/node/.n8n
 
   cloudflared:
     image: cloudflare/cloudflared:latest
     depends_on:
-      - n8n
-    command: tunnel run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+      - n8
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
 volumes:
-  n8n_data:
+  n_data:
