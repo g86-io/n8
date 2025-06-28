@@ -12,9 +12,8 @@ services:
       - DB_POSTGRESDB_PASSWORD=${DB_POSTGRESDB_PASSWORD}
       - DB_POSTGRESDB_HOST=aws-0-us-east-1.pooler.supabase.com
       - DB_POSTGRESDB_PORT=5432
-      - N8N_HOST=0.0.0.0
-      - N8N_PORT=5678
-      - N8N_PROTOCOL=http
+      # - N8N_PROTOCOL=http
+      - DB_TYPE=postgresdb
 
       - EXECUTIONS_DATA_PRUNE=true
       - EXECUTIONS_DATA_MAX_AGE=168
@@ -24,7 +23,7 @@ services:
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
       - N8N_RUNNERS_ENABLED=true
 
-      # - WEBHOOK_URL=http://n8-local.laobo.xyz
+      - WEBHOOK_URL=https://n8.9scloud.xyz
     volumes:
       - n_data:/home/node/.n8n
 
