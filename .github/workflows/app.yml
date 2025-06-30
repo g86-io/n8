@@ -20,7 +20,7 @@ jobs:
         run: curl https://ipinfo.io/json
 
       - name: Set up Docker Compose
-        run: docker compose up -d
+        run: docker compose --profile cpu up
 
       - name: print
         run: docker compose logs -f
