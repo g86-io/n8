@@ -8,10 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     env:  
-        N8N_ENCRYPTION_KEY: ${{ secrets.N8N_ENCRYPTION_KEY }}
-        DB_POSTGRESDB_USER: ${{ secrets.DB_POSTGRESDB_USER }}
-        DB_POSTGRESDB_PASSWORD: ${{ secrets.DB_POSTGRESDB_PASSWORD }}
-        CLOUDFLARE_TUNNEL_TOKEN: ${{ secrets.CLOUDFLARE_TUNNEL_TOKEN }}
+      N8N_ENCRYPTION_KEY: ${{ secrets.N8N_ENCRYPTION_KEY }}
+      DB_POSTGRESDB_USER: ${{ secrets.DB_POSTGRESDB_USER }}
+      DB_POSTGRESDB_PASSWORD: ${{ secrets.DB_POSTGRESDB_PASSWORD }}
+      CLOUDFLARE_TUNNEL_TOKEN: ${{ secrets.CLOUDFLARE_TUNNEL_TOKEN }}
+      N8N_RUNNERS_AUTH_TOKEN: g86-io
 
     steps:
       - name: Checkout code
