@@ -22,8 +22,6 @@ jobs:
       - name: Set up Docker Compose
         run: docker compose --profile cpu up
 
-      - name: print
-        run: docker compose logs -f
     
 
 
