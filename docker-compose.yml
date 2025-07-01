@@ -55,7 +55,7 @@ services:
 
   n8n:
     <<: *service-n8n
-    restart: always
+    restart: unless-stopped
     container_name: n8n
     ports:
       - 5678/tcp
