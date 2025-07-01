@@ -147,14 +147,6 @@ services:
       - ~/.flowise:/root/.flowise
     entrypoint: /bin/sh -c "sleep 3; flowise start"
 
-  webui:
-    image: ghcr.io/open-webui/open-webui:main
-    restart: unless-stopped
-    container_name: open-webui
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    volumes:
-      - open-webui:/app/backend/data
 
   qdrant:
     image: qdrant/qdrant
