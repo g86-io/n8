@@ -91,8 +91,8 @@ services:
     restart: always
     entrypoint: ["/usr/local/bin/task-runner-launcher", "javascript"]
     environment:
-      - N8N_RUNNERS_TASK_BROKER_URI: n8:5679
-      - N8N_RUNNERS_MAX_CONCURRENCY: 2
+      - N8N_RUNNERS_TASK_BROKER_URI: n8n:5679
+      - N8N_RUNNERS_MAX_CONCURRENCY: 3
       - N8N_RUNNERS_AUTO_SHUTDOWN_TIMEOUT: 60
     depends_on:
       - n8n
@@ -102,8 +102,8 @@ services:
     restart: always
     entrypoint: ["/usr/local/bin/task-runner-launcher", "javascript"]
     environment:
-      - N8N_RUNNERS_TASK_BROKER_URI: n8:5679
-      - N8N_RUNNERS_MAX_CONCURRENCY: 2
+      - N8N_RUNNERS_TASK_BROKER_URI: n8n:5679
+      - N8N_RUNNERS_MAX_CONCURRENCY: 3
     depends_on:
       - n8n
 
