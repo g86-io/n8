@@ -1,8 +1,5 @@
-version: "3.8"
-
 volumes:
   n8n_storage:
-  ollama_storage:
   qdrant_storage:
   open-webui:
 
