@@ -12,6 +12,7 @@ x-n8n: &service-n8n
     - N8N_HOST=0.0.0.0
     - N8N_PORT=5678
     - N8N_PROTOCOL=http
+    - OFFLOAD_MANUAL_EXECUTIONS_TO_WORKERS=true
 
     # database
     - DB_POSTGRESDB_USER=${DB_POSTGRESDB_USER}
