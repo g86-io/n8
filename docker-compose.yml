@@ -65,6 +65,25 @@ services:
       n8n-import:
         condition: service_completed_successfully
 
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1G
+
+
+  n8n-worker:
+    <<: *service-n8n
+    command: n8n worker
+    restart: always
+    depends_on:
+      - n8n
+
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+
   redis:
     image: redis:6-alpine
     restart: unless-stopped
@@ -72,30 +91,7 @@ services:
       - "6379:6379"
     command: ["redis-server", "--save", "", "--appendonly", "no"]
 
-  n8n-runner-1:
-    image: docker.n8n.io/n8nio/n8n:1.100.1
-    restart: always
-    entrypoint: ["/usr/local/bin/task-runner-launcher", "javascript"]
-    environment:
-      - N8N_RUNNERS_AUTH_TOKEN=${N8N_RUNNERS_AUTH_TOKEN}
-      - N8N_RUNNERS_TASK_BROKER_URI=http://n8n:5679
-      - N8N_RUNNERS_MAX_CONCURRENCY=3
-      - N8N_RUNNERS_AUTO_SHUTDOWN_TIMEOUT=60
-      
-    depends_on:
-      - n8n
-
-  n8n-runner-2:
-    image: docker.n8n.io/n8nio/n8n:1.100.1
-    restart: always
-    entrypoint: ["/usr/local/bin/task-runner-launcher", "javascript"]
-    environment:
-      - N8N_RUNNERS_AUTH_TOKEN=${N8N_RUNNERS_AUTH_TOKEN}
-      - N8N_RUNNERS_TASK_BROKER_URI=http://n8n:5679
-      - N8N_RUNNERS_MAX_CONCURRENCY=3
-    depends_on:
-      - n8n
-
+  
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
     restart: unless-stopped
