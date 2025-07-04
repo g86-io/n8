@@ -72,9 +72,9 @@ services:
           memory: 1G
 
 
-  n8n-webook:
+  n8n-webhook:
     <<: *service-n8n
-    command: webook
+    command: webhook
     restart: always
     depends_on:
       - n8n
