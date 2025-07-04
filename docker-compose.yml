@@ -72,17 +72,20 @@ services:
           memory: 1G
 
 
-  n8n-worker:
+  n8n-webook:
     <<: *service-n8n
-    command: n8n worker
+    command: webook
     restart: always
     depends_on:
       - n8n
 
-    deploy:
-      resources:
-        limits:
-          cpus: "1"
+  n8n-worker:
+    <<: *service-n8n
+    command: worker
+    restart: always
+    depends_on:
+      - n8n
+
 
   redis:
     image: redis:6-alpine
