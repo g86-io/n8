@@ -4,7 +4,9 @@ volumes:
   postgres_data:
 
 x-n8n: &service-n8n
-  image: n8nio/n8n
+  build:
+      context: .
+      dockerfile: Dockerfile
   environment:
     - GENERIC_TIMEZONE=Asia/Ho_Chi_Minh
     - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
