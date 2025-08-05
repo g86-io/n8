@@ -13,7 +13,6 @@ x-n8n: &service-n8n
     - N8N_PORT=5678
     - N8N_PROTOCOL=http
     - N8N_DIAGNOSTICS_ENABLED=false
-    - 
 
     # database
     - DB_POSTGRESDB_HOST=postgres
